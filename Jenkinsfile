@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   stage('Get Git Ochoa') { // for display purposes
+   stage('Get Build Files') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/ochoaapp/simple-maven-project-with-tests.git'
       // Get the Maven tool.
