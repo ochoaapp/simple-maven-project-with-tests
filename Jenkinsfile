@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   stage('Get Build Files') { // for display purposes
+   stage('Get Build Files- NEXUS') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/ochoaapp/simple-maven-project-with-tests.git'
       // Get the Maven tool.
@@ -8,7 +8,7 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'M3'
    }
-   stage('Build') {
+   stage('Build NEXUS') {
       // Run the maven build
       withEnv(["MVN_HOME=$mvnHome"]) {
          if (isUnix()) {
@@ -18,7 +18,7 @@ node {
          }
       }
    }
-   stage('Test Results') {
+   stage('Test Results NEXUS') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts 'target/*.jar'
    }
