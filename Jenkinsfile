@@ -21,6 +21,6 @@ node {
    stage('Test Results NEXUS') {
       junit '**/target/surefire-reports/TEST-*.xml'
       archiveArtifacts 'target/*.jar'
-      nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'simple-maven-project-with-tests-v2-1.0-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'simple-maven-project-with-tests-v2', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]], tagName: 'nexus-pipeline-test'
+      nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [], tagName: 'nexus-pipeline-test'
    }
 }
