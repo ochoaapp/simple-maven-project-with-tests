@@ -24,7 +24,7 @@ node {
    }
    
    stage('Publish to NEXUS2') {
-      nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '${project.basedir}/target/*.jar']], mavenCoordinate: [artifactId: 'simple-maven-project-with-tests-v2', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
+      nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '${basedir}/target/*.jar']], mavenCoordinate: [artifactId: 'simple-maven-project', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
    }
    
 }
