@@ -41,7 +41,7 @@ node {
                         echo "*** File: ${artifactPath}, Path found";
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
       
-                        nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '${artifactPath}' ]], mavenCoordinate: [artifactId: 'simple-maven-project', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
+                        nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/simple-maven-project-1.0-SNAPSHOT.jar' ]], mavenCoordinate: [artifactId: 'simple-maven-project', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
 
                     }
                     else {
