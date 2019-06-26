@@ -23,7 +23,7 @@ node {
       archiveArtifacts 'target/*.*'
    }
    
-   stage('Publish to NEXUS2') {
+   stage('Publish to NEXUS3') {
       nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath:'**/target/surefire-reports/TEST-*.xml']], mavenCoordinate: [artifactId: 'simple-maven-project', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
    }
    
