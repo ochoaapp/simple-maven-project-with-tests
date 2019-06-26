@@ -42,7 +42,9 @@ node {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
       
                         //nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/simple-maven-project-1.0-SNAPSHOT.jar' ]], mavenCoordinate: [artifactId: 'simple-maven-project', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
-                        nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/simple-maven-project-1.0-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'simple-maven-project-1.0-SNAPSHOT.jar', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
+                        //nexusPublisher nexusInstanceId: 'nexusrepo', nexusRepositoryId: 'maven-snapshots', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/simple-maven-project-1.0-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'simple-maven-project-1.0-SNAPSHOT.jar', groupId: 'test', packaging: 'jar', version: '1.0-SNAPSHOT']]]
+                    
+                        nexusArtifactUploader artifacts: [[artifactId: 'simple-maven-project-1.0-SNAPSHOT.jar', classifier: '', file: 'target/simple-maven-project-1.0-SNAPSHOT.jar', type: 'jar']], credentialsId: 'Nexus316', groupId: 'test', nexusUrl: 'http://13.56.58.128:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'http://13.56.58.128:8081/repository/maven-snapshots/', version: '1.0-SNAPSHOT'               
                     }
                     else {
                         error "*** File: ${artifactPath}, could not be found";
