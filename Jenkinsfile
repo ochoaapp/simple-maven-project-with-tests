@@ -20,7 +20,7 @@ node {
    }
    stage('Test Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
-      archiveArtifacts 'target/*.jar'
+      archiveArtifacts 'target/*.*'
    }
    
    stage('Publish to NEXUS2') {
